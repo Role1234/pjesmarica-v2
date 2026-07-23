@@ -20,9 +20,20 @@ const artistCount =
 document.getElementById("artistCount");
 
 
-let songs=[];
 
-let artists=[];
+let songs = [];
+
+let artists = [];
+
+
+function normalizeText(text){
+
+    return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+}
 
 
 
@@ -42,18 +53,22 @@ async function loadSongs(){
 
     if(error){
 
+
         console.error(error);
+
 
         box.innerHTML =
         "<p>Greška kod učitavanja pjesama</p>";
 
+
         return;
+
 
     }
 
 
 
-    songs=data;
+    songs = data;
 
 
 
@@ -62,7 +77,7 @@ async function loadSongs(){
 
 
 
-    const grouped={};
+    const grouped = {};
 
 
 
@@ -71,15 +86,19 @@ async function loadSongs(){
 
         if(!grouped[song.artist]){
 
-            grouped[song.artist]=[];
+
+            grouped[song.artist] = [];
+
 
         }
+
 
 
         grouped[song.artist].push(song);
 
 
     });
+
 
 
 
@@ -94,7 +113,7 @@ async function loadSongs(){
 
 
 
-    showArtists(grouped,artists);
+    showArtists(grouped, artists);
 
 
 
@@ -103,10 +122,14 @@ async function loadSongs(){
 
 
 
+
+
+
+
 function showArtists(grouped,list){
 
 
-    box.innerHTML="";
+    box.innerHTML = "";
 
 
 
@@ -114,8 +137,7 @@ function showArtists(grouped,list){
 
 
         const image =
-            getArtistImage(name);
-
+        getArtistImage(name);
 
 
 
@@ -125,7 +147,7 @@ function showArtists(grouped,list){
         <div class="artist-card">
 
 
-            <img 
+            <img
             src="${image}"
             onerror="this.src='images/default.jpg'"
             >
@@ -142,6 +164,7 @@ function showArtists(grouped,list){
             </p>
 
 
+
             <a href="izvodac.html?artist=${encodeURIComponent(name)}">
 
             Otvori
@@ -153,6 +176,210 @@ function showArtists(grouped,list){
 
 
         `;
+
+
+
+    });
+
+
+
+}
+
+
+
+
+function getSnippet(text, searchValue){
+
+
+    if(!text){
+
+        return "";
+
+    }
+
+
+    const normalizedText =
+    normalizeText(text);
+
+
+
+    const index =
+    normalizedText.indexOf(searchValue);
+
+
+
+    if(index === -1){
+
+        return "";
+
+    }
+
+
+
+    let start =
+    index - 50;
+
+
+
+    let end =
+    index + searchValue.length + 80;
+
+
+
+    if(start < 0){
+
+        start = 0;
+
+    }
+
+
+
+    if(end > text.length){
+
+        end = text.length;
+
+    }
+
+
+
+    let snippet =
+    text.substring(start,end);
+
+
+
+    // pronađi stvarnu riječ u originalnom tekstu
+    const originalPart =
+    text.substring(
+        index,
+        index + searchValue.length + 5
+    );
+
+
+
+    const regex =
+    new RegExp(
+        originalPart,
+        "gi"
+    );
+
+
+
+    snippet =
+    snippet.replace(
+        regex,
+        `<strong class="highlight">$&</strong>`
+    );
+
+
+
+    return "..." + snippet + "...";
+
+
+}
+
+
+
+
+
+
+
+
+function showSearchResults(results){
+
+
+    box.innerHTML = "";
+
+
+
+    if(results.length === 0){
+
+
+        box.innerHTML =
+        "<p>Nema pronađenih pjesama.</p>";
+
+
+        return;
+
+
+    }
+
+
+
+
+
+    const searchValue =
+normalizeText(search.value.trim());
+
+
+
+
+
+
+    results.forEach(song=>{
+
+
+        const image =
+        getArtistImage(song.artist);
+
+
+
+        const snippet =
+        getSnippet(
+            song.lyrics,
+            searchValue
+        );
+
+
+
+        box.innerHTML += `
+
+
+        <div class="artist-card">
+
+
+            <img
+            src="${image}"
+            onerror="this.src='images/default.jpg'"
+            >
+
+
+
+            <h3>
+            🎵 ${song.title}
+            </h3>
+
+
+
+            <p>
+            ${song.artist}
+            </p>
+
+
+
+            ${
+                snippet
+                ?
+                `<p class="snippet">
+                ${snippet}
+                </p>`
+                :
+                ""
+            }
+
+
+
+            <a href="pjesma.html?id=${song.id}">
+
+            Otvori pjesmu
+
+            </a>
+
+
+        </div>
+
+
+        `;
+
 
 
     });
@@ -170,46 +397,101 @@ search.addEventListener("input",()=>{
 
 
     const value =
-    search.value.toLowerCase();
+    normalizeText(search.value.trim());
 
 
 
-    const filtered =
-    artists.filter(name=>
-
-        name.toLowerCase()
-        .includes(value)
-
-    );
 
 
 
-    const grouped={};
+    if(value === ""){
+
+
+        const grouped = {};
 
 
 
-    songs.forEach(song=>{
+        songs.forEach(song=>{
 
 
-        if(!grouped[song.artist]){
-
-            grouped[song.artist]=[];
-
-        }
+            if(!grouped[song.artist]){
 
 
-        grouped[song.artist].push(song);
+                grouped[song.artist] = [];
+
+
+            }
+
+
+
+            grouped[song.artist].push(song);
+
+
+        });
+
+
+
+        showArtists(grouped, artists);
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+    const results =
+
+    songs.filter(song=>{
+
+
+        const title =
+normalizeText(song.title || "");
+
+
+const artist =
+normalizeText(song.artist || "");
+
+
+const lyrics =
+normalizeText(song.lyrics || "");
+
+
+
+
+
+        return (
+
+            title.includes(value)
+
+            ||
+
+            artist.includes(value)
+
+            ||
+
+            lyrics.includes(value)
+
+        );
 
 
     });
 
 
 
-    showArtists(grouped,filtered);
+
+
+    showSearchResults(results);
 
 
 
 });
+
+
 
 
 

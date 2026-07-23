@@ -754,3 +754,40 @@ main{
 }
 
 }
+
+.snippet {
+
+    font-size: 14px;
+
+    color: #555;
+
+    background: rgba(0,0,0,0.04);
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    line-height: 1.5;
+
+    margin: 12px 0;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+
+}
+
+.highlight {
+
+    color: #b8860b;
+
+    font-weight: bold;
+
+}
+
+
+
