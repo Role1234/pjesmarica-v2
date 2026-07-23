@@ -1,0 +1,179 @@
+/* =========================
+   SIDEBAR
+========================= */
+
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:-280px;
+
+    width:260px;
+
+    height:100vh;
+
+
+    background:rgba(0,0,0,.92);
+
+    border-right:1px solid #d4af37;
+
+
+    padding:25px;
+
+
+    z-index:1000;
+
+
+    backdrop-filter:blur(15px);
+
+
+    transition:.35s;
+
+
+    box-shadow:
+
+    10px 0 40px rgba(212,175,55,.15);
+
+}
+
+
+
+.sidebar.active{
+
+    left:0;
+
+}
+
+
+
+.sidebar h2{
+
+    margin-top:20px;
+
+    color:#d4af37;
+
+    font-family:Georgia,serif;
+
+    text-align:center;
+
+}
+
+
+
+.sidebar a{
+
+    display:block;
+
+
+    margin-top:15px;
+
+
+    padding:12px;
+
+
+    color:white;
+
+
+    text-decoration:none;
+
+
+    border-radius:12px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.sidebar a:hover{
+
+    background:#d4af37;
+
+    color:#050505;
+
+}
+
+
+
+
+
+.close-sidebar{
+
+    background:none;
+
+    border:0;
+
+    color:#d4af37;
+
+
+    font-size:22px;
+
+
+    cursor:pointer;
+
+    float:right;
+
+}
+
+
+
+
+
+.menu-btn{
+
+
+    position:fixed;
+
+
+    top:25px;
+
+    left:25px;
+
+
+    z-index:900;
+
+
+    width:45px;
+
+    height:45px;
+
+
+    border-radius:50%;
+
+
+    border:1px solid #d4af37;
+
+
+    background:rgba(0,0,0,.7);
+
+
+    color:#d4af37;
+
+
+    font-size:22px;
+
+
+    cursor:pointer;
+
+
+    backdrop-filter:blur(10px);
+
+
+}
+
+
+
+.menu-btn:hover{
+
+
+    background:#d4af37;
+
+    color:#050505;
+
+
+}

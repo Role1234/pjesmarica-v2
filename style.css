@@ -186,7 +186,7 @@ body::after{
     align-items:center;
 
 
-    padding:25px 60px;
+    padding:25px 60px 25px 90px;
 
 }
 
@@ -714,7 +714,7 @@ main{
 
 .top-bar{
 
-    padding:20px;
+    padding:20px 20px 20px 80px;
 
 }
 
