@@ -1,23 +1,7 @@
 import { supabase } from "./supabase.js";
+import { getArtistImage } from "./images.js";
 
 
-const artistImages = {
-
-"Barabe":
-"images/barabe.jpg",
-
-"Braća Pejinović":
-"images/bracapejinovic.jpg",
-
-"Hari Mata Hari":
-"images/hari.jpg"
-
-};
-
-
-
-const defaultImage =
-"images/default.jpg";
 
 
 
@@ -91,8 +75,16 @@ artistElement.textContent=data.artist;
 lyricsElement.textContent=data.lyrics;
 
 
-imageElement.src=
-artistImages[data.artist] || defaultImage;
+imageElement.src =
+getArtistImage(data.artist);
+
+imageElement.onerror = () => {
+
+    imageElement.src =
+    "images/default.jpg";
+
+};
+
 
 
 

@@ -1,22 +1,7 @@
 import { supabase } from "./supabase.js";
+import { getArtistImage } from "./images.js";
 
 
-const artistImages = {
-
-    "Barabe":
-    "images/barabe.jpg",
-
-    "Braća Pejinović":
-    "images/bracapejinovic.jpg",
-
-    "Hari Mata Hari":
-    "images/hari.jpg"
-
-};
-
-
-const defaultImage =
-"images/default.jpg";
 
 
 const box =
@@ -129,7 +114,8 @@ function showArtists(grouped,list){
 
 
         const image =
-        artistImages[name] || defaultImage;
+            getArtistImage(name);
+
 
 
 
@@ -139,7 +125,11 @@ function showArtists(grouped,list){
         <div class="artist-card">
 
 
-            <img src="${image}">
+            <img 
+            src="${image}"
+            onerror="this.src='images/default.jpg'"
+            >
+
 
 
             <h3>

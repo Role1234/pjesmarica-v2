@@ -1,22 +1,6 @@
 import { supabase } from "./supabase.js";
+import { getArtistImage } from "./images.js";
 
-
-const artistImages = {
-
-    "Barabe":
-    "images/barabe.jpg",
-
-    "Braća Pejinović":
-    "images/bracapejinovic.jpg",
-
-    "Hari Mata Hari":
-    "images/hari.jpg"
-
-};
-
-
-const defaultImage =
-"images/default.jpg";
 
 
 
@@ -76,7 +60,15 @@ async function loadArtist(){
 
 
     imageElement.src =
-    artistImages[name] || defaultImage;
+getArtistImage(name);
+
+imageElement.onerror = () => {
+
+    imageElement.src =
+    "images/default.jpg";
+
+};
+
 
 
 
