@@ -7,30 +7,26 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pjesma</title>
+<title>Izvođač</title>
 
-<link rel="stylesheet" href="pjesma.css">
+<link rel="stylesheet" href="izvodac.css">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 </head>
 
-
 <body>
 
+<!-- Dekoracija -->
 
 <div class="music-decoration note-one">♪</div>
 <div class="music-decoration note-two">𝄞</div>
 <div class="music-decoration note-three">♬</div>
 
-
-
 <div class="app">
 
-
 <header class="top-bar">
-
 
 <a href="index.html" class="logo">
 
@@ -44,104 +40,45 @@ Tvoja glazbena kolekcija
 
 </a>
 
-
-
-
-<a class="back-btn" href="javascript:history.back()">
-
-← Nazad
-
+<a href="index.html" class="back-btn">
+← Početna
 </a>
-
 
 </header>
 
+<main>
 
-
-
-
-<main class="song-page">
-
-
-
-<section class="song-header">
-
-
+<section class="artist-header">
 
 <img
 id="artistImage"
 class="artist-image"
-src="images/default.jpg"
+src=""
 alt="Izvođač">
 
+<h1 id="name"></h1>
 
+<p id="songCounter"></p>
 
-<h1 id="title"></h1>
+</section>
 
+<section class="songs-section">
 
-<h2 id="artist"></h2>
+<h2>Popularne pjesme</h2>
 
-
-
-<div class="actions">
-
-
-<button id="favoriteBtn">
-
-♡ Omiljena
-
-</button>
-
-
-
-<button id="copyBtn">
-
-📋 Kopiraj tekst
-
-</button>
-
+<div
+id="songs"
+class="songs-container">
 
 </div>
 
-
-
 </section>
-
-
-
-
-
-
-<div class="gold-line"></div>
-
-
-
-
-
-<section class="lyrics-container">
-
-
-<p id="lyrics" oncopy="return false" oncut="return false"></p>
-
-
-
-</section>
-
-
-
-
 
 </main>
 
-
 </div>
 
-
-
-
-
-<script type="module" src="pjesma.js"></script>
-
+<script type="module" src="izvodac.js"></script>
 
 </body>
 

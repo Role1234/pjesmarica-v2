@@ -1,6 +1,6 @@
-
-import { createClient } from 
-"https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+// =========================
+// SUPABASE KONFIGURACIJA
+// =========================
 
 
 const SUPABASE_URL =
@@ -11,8 +11,33 @@ const SUPABASE_KEY =
 "sb_publishable_nDgJ0ZBII3Zj97o05Bf6pQ_DYfKauBx";
 
 
-export const supabase =
-createClient(
+
+// =========================
+// KREIRANJE KLIJENTA
+// =========================
+
+
+const supabase =
+window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
+
+
+
+// =========================
+// EXPORT ZA MODULE
+// =========================
+
+
+export { supabase };
+
+
+
+// =========================
+// GLOBALNI PRISTUP
+// (ako zatreba)
+// =========================
+
+
+window.supabaseClient = supabase;

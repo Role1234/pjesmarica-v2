@@ -1,0 +1,603 @@
+*{
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+
+body{
+
+    margin:0;
+    min-height:100vh;
+
+    background:#050505;
+
+    color:white;
+
+    overflow-x:hidden;
+
+}
+
+
+
+/* =========================
+   POZADINA
+========================= */
+
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    top:0;
+    right:0;
+
+    width:38%;
+    height:55%;
+
+
+    background-image:
+
+    linear-gradient(
+        90deg,
+        #050505 0%,
+        rgba(5,5,5,.65) 40%,
+        transparent
+    ),
+
+    linear-gradient(
+        180deg,
+        transparent 50%,
+        #050505
+    ),
+
+    url("images/violina-pozadina.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+
+    opacity:.30;
+
+    z-index:0;
+
+    pointer-events:none;
+
+}
+
+
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:450px;
+
+    height:450px;
+
+    right:-150px;
+
+    top:-150px;
+
+
+    background:#d4af37;
+
+    opacity:.08;
+
+    filter:blur(130px);
+
+
+    z-index:0;
+
+    pointer-events:none;
+
+}
+
+
+
+
+
+/* =========================
+   GLAZBENI SIMBOLI
+========================= */
+
+
+.music-decoration{
+
+    position:fixed;
+
+    color:#d4af37;
+
+    opacity:.06;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    font-size:170px;
+
+}
+
+
+.note-one{
+
+    top:40px;
+
+    right:100px;
+
+}
+
+
+.note-two{
+
+    bottom:30px;
+
+    left:40px;
+
+    font-size:210px;
+
+}
+
+
+.note-three{
+
+    top:45%;
+
+    right:40px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   APP
+========================= */
+
+
+.app{
+
+    position:relative;
+
+    z-index:2;
+
+    min-height:100vh;
+
+}
+
+
+
+
+
+
+/* =========================
+   HEADER
+========================= */
+
+
+.top-bar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    padding:25px 60px;
+
+}
+
+.logo{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    display:inline-block;
+
+}
+
+
+.logo h1{
+
+    margin:0;
+
+    color:#d4af37;
+
+    font-family:Georgia,serif;
+
+    font-size:30px;
+
+}
+
+
+
+.logo p{
+
+    margin:5px 0 0;
+
+    color:#cbd5e1;
+
+    font-size:13px;
+
+}
+
+
+
+
+.back-btn{
+
+    background:#d4af37;
+
+    color:#050505;
+
+    text-decoration:none;
+
+    padding:10px 25px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+
+
+.back-btn:hover{
+
+    background:#facc15;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+/* =========================
+   MAIN
+========================= */
+
+
+main{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+
+
+
+
+
+/* =========================
+   IZVOĐAČ
+========================= */
+
+
+.artist-header{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+
+
+.artist-image{
+
+    width:230px;
+
+    height:230px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:5px solid #d4af37;
+
+    box-shadow:
+
+    0 0 30px rgba(212,175,55,.35);
+
+}
+
+
+
+#name{
+
+    margin:20px 0 10px;
+
+    color:#d4af37;
+
+    font-family:Georgia,serif;
+
+    font-size:42px;
+
+}
+
+
+
+#songCounter{
+
+    color:#cbd5e1;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+/* =========================
+   NASLOV PJESAMA
+========================= */
+
+
+.songs-section h2{
+
+    text-align:center;
+
+    color:#d4af37;
+
+    font-family:Georgia,serif;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+
+/* =========================
+   PJESME - LISTA
+========================= */
+
+
+.songs-container{
+
+    max-width:850px;
+
+    margin:0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+
+
+
+.song-card{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+
+    padding:14px 20px;
+
+
+    background:rgba(0,0,0,.65);
+
+
+    border:1px solid rgba(212,175,55,.7);
+
+
+    border-radius:14px;
+
+
+    backdrop-filter:blur(10px);
+
+
+    transition:.3s;
+
+}
+
+
+
+
+.song-card:hover{
+
+    transform:translateX(5px);
+
+
+    box-shadow:
+
+    0 5px 20px rgba(212,175,55,.25);
+
+
+    border-color:#facc15;
+
+}
+
+
+
+
+.song-card h3{
+
+    margin:0;
+
+
+    color:white;
+
+
+    font-size:16px;
+
+
+    font-weight:500;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:12px;
+
+}
+
+
+
+.song-card h3::before{
+
+    content:"🎵";
+
+}
+
+
+
+
+.song-card a{
+
+    text-decoration:none;
+
+
+    color:#050505;
+
+
+    background:#d4af37;
+
+
+    padding:7px 15px;
+
+
+    border-radius:10px;
+
+
+    font-size:13px;
+
+
+    font-weight:700;
+
+
+    transition:.3s;
+
+}
+
+
+
+.song-card a:hover{
+
+    background:#facc15;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   MOBITEL
+========================= */
+
+
+@media(max-width:800px){
+
+
+.top-bar{
+
+    padding:20px;
+
+}
+
+
+
+.logo h1{
+
+    font-size:24px;
+
+}
+
+
+
+main{
+
+    padding:20px;
+
+}
+
+
+
+.artist-image{
+
+    width:180px;
+
+    height:180px;
+
+}
+
+
+
+#name{
+
+    font-size:32px;
+
+}
+
+
+
+.song-card{
+
+    padding:12px;
+
+}
+
+
+
+.song-card h3{
+
+    font-size:14px;
+
+}
+
+
+
+.song-card a{
+
+    padding:6px 10px;
+
+    font-size:12px;
+
+}
+
+
+
+.music-decoration{
+
+    display:none;
+
+}
+
+
+}

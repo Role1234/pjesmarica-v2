@@ -2,44 +2,279 @@
 <html lang="hr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pjemarica</title>
+<meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pjesmarica</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 </head>
 
 
 <body>
 
-    <header>
-        <h1>🎵 Pjemarica</h1>
 
-        <p>
-            Pronađi i čitaj izvorne pjesme
-        </p>
-    </header>
+<!-- dekoracija glazbenih znakova -->
 
+<div class="music-decoration note-one">
+♪
+</div>
 
-    <main>
+<div class="music-decoration note-two">
+𝄞
+</div>
 
-        <input 
-            id="search"
-            placeholder="Pretraži pjesme..."
-        >
-
-
-        <div id="songs">
-
-            Učitavanje pjesama...
-
-        </div>
-
-    </main>
+<div class="music-decoration note-three">
+♬
+</div>
 
 
-    <script type="module" src="app.js"></script>
+
+<div class="app">
+
+
+
+<header class="top-bar">
+
+
+<a href="index.html" class="logo">
+
+<h1>
+𝄞 Pjesmarica
+</h1>
+
+<p>
+Tvoja glazbena kolekcija
+</p>
+
+</a>
+
+
+
+
+<a href="login.html" class="admin-btn">
+
+⚙ Admin
+
+</a>
+
+
+
+</header>
+
+
+
+
+
+<main>
+
+
+
+<section class="hero">
+
+
+<h2 class="main-title">
+
+Dobro došli na stranicu
+
+</h2>
+
+
+
+<h1 class="gold-title">
+
+Tekstova izvorne muzike
+
+</h1>
+
+
+
+<div class="music-line">
+
+<span></span>
+
+𝄞
+
+<span></span>
+
+</div>
+
+
+
+<p class="subtitle">
+
+Pronađite tekstove svojih omiljenih pjesama
+i uživajte u najljepšim stihovima izvorne muzike.
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="search-box">
+
+
+<span>
+🔎
+</span>
+
+
+
+<input
+
+id="search"
+
+type="text"
+
+placeholder="Pretražite izvođača ili pjesmu..."
+
+>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="stats">
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-title">
+
+Ukupno pjesama
+
+</div>
+
+
+
+<strong id="songCount">
+
+0
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-title">
+
+Ukupno izvođača
+
+</div>
+
+
+
+<strong id="artistCount">
+
+0
+
+</strong>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="artists-section">
+
+
+
+<div class="section-header">
+
+
+<h3>
+
+Izvođači
+
+</h3>
+
+
+<p>
+
+Odaberite izvođača i pronađite njegove pjesme
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div 
+
+class="artists"
+
+id="artists">
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script type="module" src="script.js"></script>
+
+
+
+
 
 </body>
 

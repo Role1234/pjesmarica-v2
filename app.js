@@ -1,51 +1,163 @@
-import { supabase } from "./supabase.js";
+import {supabase} from "./supabase.js";
 
 
-const songsDiv =
-document.getElementById("songs");
+const artistsDiv =
+document.getElementById("artists");
+
+
+const search =
+document.getElementById("search");
+
+
+const artistCount =
+document.getElementById("artistCount");
+
+
+const songCount =
+document.getElementById("songCount");
 
 
 
-const { data: songs, error } =
-await supabase
+let allSongs=[];
+
+
+
+const {data,error}=await supabase
+
 .from("songs")
-.select("id,title,artist")
-.limit(20);
+
+.select("*")
+
+.order("created_at",
+{
+ascending:false
+});
 
 
 
 if(error){
 
-    songsDiv.innerHTML =
-    "Greška: " + error.message;
+artistsDiv.innerHTML=error.message;
+
+}
+
+else{
+
+
+allSongs=data;
+
+
+songCount.innerHTML=data.length;
+
+
+artistCount.innerHTML=
+new Set(
+data.map(x=>x.artist)
+).size;
+
+
+displayArtists(data);
+
 
 }
 
 
 
-songs.forEach(song => {
+
+function displayArtists(songs){
 
 
-    songsDiv.innerHTML += `
-
-    <div class="card">
-
-        <h2>
-        ${song.title}
-        </h2>
-
-        <p>
-        ${song.artist}
-        </p>
+artistsDiv.innerHTML="";
 
 
-        <a href="pjesma.html?id=${song.id}">
-        Čitaj pjesmu
-        </a>
+let artists={};
 
-    </div>
 
-    `;
+
+songs.forEach(song=>{
+
+
+if(!artists[song.artist])
+
+artists[song.artist]=0;
+
+
+artists[song.artist]++;
+
+
+});
+
+
+
+Object.keys(artists)
+.forEach(name=>{
+
+
+artistsDiv.innerHTML+=`
+
+
+<div class="card">
+
+
+<div class="icon">
+🎤
+</div>
+
+
+<h3>
+${name}
+</h3>
+
+
+<p>
+${artists[name]} pjesama
+</p>
+
+
+
+<a href="izvodac.html?artist=${name}">
+Otvori →
+</a>
+
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+
+search.addEventListener("input",()=>{
+
+
+let value=
+search.value.toLowerCase();
+
+
+
+let filtered=
+allSongs.filter(x=>
+
+x.title.toLowerCase().includes(value)
+
+||
+
+x.artist.toLowerCase().includes(value)
+
+);
+
+
+
+displayArtists(filtered);
 
 
 });
