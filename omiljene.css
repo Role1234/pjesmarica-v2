@@ -1,0 +1,98 @@
+
+/* =========================
+   BACK BUTTON KOD OMILJENA.HTML
+========================= */
+
+.back-btn{
+
+    background:#d4af37;
+
+    color:#050505;
+
+    text-decoration:none;
+
+    padding:10px 25px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+
+.back-btn:hover{
+
+    background:#facc15;
+
+    transform:translateY(-3px);
+
+}
+
+/* =========================
+   OMILJENE PJESME
+========================= */
+
+
+.remove-favorite{
+
+    margin-top:10px;
+
+    background:#8b0000;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+.remove-favorite:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+/* bolji razmak kartica */
+
+#favorites{
+
+    margin-top:20px;
+
+}
+
+
+
+
+
+/* tekst kada nema pjesama */
+
+#favorites p{
+
+    text-align:center;
+
+    color:#cbd5e1;
+
+    font-size:16px;
+
+}

@@ -122,13 +122,104 @@ document
 
 
 
-
-document
-.getElementById("favoriteBtn")
-.addEventListener("click",()=>{
+const favoriteBtn =
+document.getElementById("favoriteBtn");
 
 
-alert("Favoriti će biti dodani uskoro ❤️");
+
+function getFavorites(){
+
+    return JSON.parse(
+        localStorage.getItem("favorites")
+    ) || [];
+
+}
+
+
+
+function saveFavorites(favorites){
+
+    localStorage.setItem(
+        "favorites",
+        JSON.stringify(favorites)
+    );
+
+}
+
+
+
+
+function updateFavoriteButton(){
+
+
+    const favorites =
+    getFavorites();
+
+
+
+    if(favorites.includes(data.id)){
+
+
+        favoriteBtn.innerHTML =
+        "❤️ U omiljenima";
+
+
+    }
+    else{
+
+
+        favoriteBtn.innerHTML =
+        "♡ Omiljena";
+
+
+    }
+
+
+}
+
+
+
+
+
+favoriteBtn.addEventListener("click",()=>{
+
+
+    let favorites =
+    getFavorites();
+
+
+
+    if(favorites.includes(data.id)){
+
+
+        favorites =
+        favorites.filter(
+            id => id !== data.id
+        );
+
+
+    }
+    else{
+
+
+        favorites.push(data.id);
+
+
+    }
+
+
+
+    saveFavorites(favorites);
+
+
+
+    updateFavoriteButton();
+
 
 
 });
+
+
+
+updateFavoriteButton();
+
