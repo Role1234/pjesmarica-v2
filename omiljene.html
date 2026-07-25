@@ -11,8 +11,11 @@
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="omiljene.css">
+<link rel="stylesheet" href="sidebar.css">
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 </head>
 
@@ -20,30 +23,86 @@
 <body>
 
 
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+
+    <button class="close-sidebar" id="closeSidebar">
+        ✕
+    </button>
+
+
+    <h2>
+        𝄞 Pjesmarica
+    </h2>
+
+
+    <a href="index.html" data-page="index.html">
+    🏠 Početna
+    </a>
+
+
+
+    <a href="svi-izvodaci.html" data-page="svi-izvodaci.html">
+    🎤 Izvođači
+</a>
+
+
+
+    <a href="omiljene.html" data-page="omiljene.html">
+    ❤️ Omiljene pjesme
+</a>
+
+
+
+    <a href="login.html" data-page="login.html">
+    ⚙ Admin
+</a>
+
+
+</div>
+
+
+
+<button class="menu-btn" id="menuBtn">
+
+    ☰
+
+</button>
+
+
+
+
+
+
+
 <div class="app">
+
+
+
 
 
 <header class="top-bar">
 
 
+
 <a href="index.html" class="logo">
+
 
 <h1>
 𝄞 Pjesmarica
 </h1>
 
+
 <p>
 Tvoja glazbena kolekcija
 </p>
 
-</a>
-
-
-<a class="back-btn" href="index.html">
-
-← Početna
 
 </a>
+
 
 
 </header>
@@ -52,13 +111,24 @@ Tvoja glazbena kolekcija
 
 
 
+
+
+
+
 <main>
+
+
+
 
 
 <section class="artists-section">
 
 
+
+
+
 <div class="section-header">
+
 
 <h3>
 
@@ -79,20 +149,35 @@ Vaše spremljene pjesme
 
 
 
+
+
+
+
+
 <div 
 
 class="artists"
 
 id="favorites">
 
+
 </div>
+
+
+
 
 
 
 </section>
 
 
+
+
+
 </main>
+
+
+
 
 
 
@@ -102,7 +187,14 @@ id="favorites">
 
 
 
+
+
+<script src="sidebar.js"></script>
+
 <script type="module" src="omiljene.js"></script>
+
+
+
 
 
 </body>

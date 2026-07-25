@@ -7,9 +7,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pjesma</title>
+<title>Svi izvođači</title>
 
-<link rel="stylesheet" href="pjesma.css">
+
+<link rel="stylesheet" href="svi-izvodaci.css">
 <link rel="stylesheet" href="sidebar.css">
 
 
@@ -17,6 +18,7 @@
 
 
 </head>
+
 
 
 <body>
@@ -39,27 +41,23 @@
 
 
     <a href="index.html" data-page="index.html">
-    🏠 Početna
+        🏠 Početna
     </a>
 
 
-
     <a href="svi-izvodaci.html" data-page="svi-izvodaci.html">
-    🎤 Izvođači
-</a>
-
-
+        🎤 Izvođači
+    </a>
 
 
     <a href="omiljene.html" data-page="omiljene.html">
-    ❤️ Omiljene pjesme
-</a>
-
+        ❤️ Omiljene pjesme
+    </a>
 
 
     <a href="login.html" data-page="login.html">
-    ⚙ Admin
-</a>
+        ⚙ Admin
+    </a>
 
 
 </div>
@@ -68,7 +66,7 @@
 
 <button class="menu-btn" id="menuBtn">
 
-    ☰
+☰
 
 </button>
 
@@ -76,19 +74,11 @@
 
 
 
-<!-- DEKORACIJA -->
-
-<div class="music-decoration note-one">♪</div>
-
-<div class="music-decoration note-two">𝄞</div>
-
-<div class="music-decoration note-three">♬</div>
-
-
-
 
 
 <div class="app">
+
+
 
 
 
@@ -111,7 +101,6 @@ Tvoja glazbena kolekcija
 </a>
 
 
-
 </header>
 
 
@@ -120,61 +109,36 @@ Tvoja glazbena kolekcija
 
 
 
-<main class="song-page">
 
 
-
-<section class="song-header">
-
-
-
-<img
-
-id="artistImage"
-
-class="artist-image"
-
-src="images/default.jpg"
-
-alt="Izvođač"
-
->
+<main>
 
 
 
 
 
-<h1 id="title"></h1>
-
-
-<h2 id="artist"></h2>
+<section class="artists-section">
 
 
 
 
 
+<div class="section-header">
 
 
-<div class="actions">
+<h3>
 
+🎤 Svi izvođači
 
-
-<button id="favoriteBtn">
-
-♡ Omiljena
-
-</button>
+</h3>
 
 
 
+<p>
 
+Popis svih izvođača abecednim redom
 
-<button id="copyBtn">
-
-📋 Kopiraj tekst
-
-</button>
-
+</p>
 
 
 </div>
@@ -183,32 +147,18 @@ alt="Izvođač"
 
 
 
-</section>
 
 
 
+<div 
+class="artists"
+id="artists">
+
+
+</div>
 
 
 
-
-<div class="gold-line"></div>
-
-
-
-
-
-
-
-<section class="lyrics-container">
-
-
-
-<p 
-id="lyrics" 
-oncopy="return false" 
-oncut="return false">
-
-</p>
 
 
 
@@ -226,6 +176,8 @@ oncut="return false">
 
 
 
+
+
 </div>
 
 
@@ -236,10 +188,11 @@ oncut="return false">
 
 <script src="sidebar.js"></script>
 
-<script type="module" src="pjesma.js"></script>
+<script type="module" src="svi-izvodaci.js"></script>
 
 
 
 </body>
+
 
 </html>

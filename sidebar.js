@@ -24,3 +24,22 @@ closeBtn.addEventListener("click",()=>{
     sidebar.classList.remove("active");
 
 });
+
+const currentPage =
+window.location.pathname.split("/").pop();
+
+
+
+document
+.querySelectorAll(".sidebar a")
+.forEach(link=>{
+
+
+    if(link.dataset.page === currentPage){
+
+        link.classList.add("active-link");
+
+    }
+
+
+});

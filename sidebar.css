@@ -177,3 +177,35 @@
 
 
 }
+
+/* =========================
+   HEADER POMAK ZBOG SIDEBARA
+========================= */
+
+.top-bar{
+
+    padding-left:90px;
+
+}
+
+@media(max-width:800px){
+
+    .top-bar{
+
+        padding-left:70px;
+
+    }
+
+}
+
+/* AKTIVNA STRANICA */
+
+.sidebar a.active-link{
+
+    background:#d4af37;
+
+    color:#050505;
+
+    font-weight:700;
+
+}
