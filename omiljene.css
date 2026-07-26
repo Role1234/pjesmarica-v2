@@ -96,3 +96,24 @@
     font-size:16px;
 
 }
+
+@media(max-width:800px){
+
+.top-bar{
+
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+
+.logo{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+}
