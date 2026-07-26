@@ -428,7 +428,11 @@ text-align:center;
 
 .top-bar{
 
-padding:20px;
+    padding-top:75px;
+
+    padding-right:20px;
+
+    padding-bottom:30px;
 
 }
 

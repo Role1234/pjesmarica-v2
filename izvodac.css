@@ -527,7 +527,12 @@ main{
 
 .top-bar{
 
-    padding:20px;
+    padding-top:75px;
+
+    padding-right:20px;
+
+    padding-bottom:30px;
+
 
 }
 
@@ -599,5 +604,49 @@ main{
 
 }
 
+
+}
+
+
+
+.actions{
+
+margin-top:30px;
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+
+
+.actions button{
+
+background:rgba(0,0,0,.7);
+
+border:1px solid #d4af37;
+
+color:white;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+.actions button:hover{
+
+background:#d4af37;
+
+color:#050505;
 
 }
