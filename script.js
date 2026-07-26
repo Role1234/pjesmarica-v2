@@ -498,3 +498,4 @@ normalizeText(song.lyrics || "");
 
 
 loadSongs();
+

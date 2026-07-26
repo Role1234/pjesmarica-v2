@@ -213,3 +213,4 @@ function showArtists(grouped,artists){
 
 
 loadArtists();
+

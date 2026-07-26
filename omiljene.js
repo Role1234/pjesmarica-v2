@@ -236,3 +236,4 @@ window.removeFavorite = function(id){
 
 
 loadFavorites();
+

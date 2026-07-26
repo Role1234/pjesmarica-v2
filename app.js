@@ -161,3 +161,4 @@ displayArtists(filtered);
 
 
 });
+
