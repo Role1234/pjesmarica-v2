@@ -95,8 +95,6 @@ body::after{
 
 
 
-/* GLAZBENI SIMBOLI */
-
 
 .music-decoration{
 
@@ -115,7 +113,6 @@ body::after{
 }
 
 
-
 .note-one{
 
     top:40px;
@@ -123,7 +120,6 @@ body::after{
     right:100px;
 
 }
-
 
 
 .note-two{
@@ -135,7 +131,6 @@ body::after{
     font-size:210px;
 
 }
-
 
 
 .note-three{
@@ -164,6 +159,8 @@ body::after{
 
 
 
+
+
 /* HEADER */
 
 
@@ -176,6 +173,8 @@ body::after{
     align-items:center;
 
     padding:25px 60px;
+
+    gap:20px;
 
 }
 
@@ -219,6 +218,125 @@ body::after{
 
 
 
+/* BACKUP GUMBI */
+
+
+.top-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    justify-content:flex-end;
+
+}
+
+
+
+
+.top-actions button{
+
+    border:0;
+
+    padding:11px 18px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+
+.pdf-btn{
+
+    background:#16a34a;
+
+    color:white;
+
+    border:0;
+
+    padding:12px 25px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+
+.pdf-btn:hover{
+
+    background:#22c55e;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+.json-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+.json-btn:hover{
+
+    background:#3b82f6;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+
+.import-btn{
+
+    background:#f97316;
+
+    color:white;
+
+}
+
+
+
+.import-btn:hover{
+
+    background:#fb923c;
+
+    transform:translateY(-3px);
+
+}
+
+
+
 
 
 .admin-btn{
@@ -229,7 +347,7 @@ body::after{
 
     color:#050505;
 
-    padding:11px 25px;
+    padding:12px 25px;
 
     border-radius:14px;
 
@@ -256,6 +374,8 @@ body::after{
 
 
 
+
+
 main{
 
     max-width:1100px;
@@ -270,8 +390,6 @@ main{
 
 
 
-
-/* HERO */
 
 
 .hero{
@@ -310,7 +428,6 @@ main{
 
 
 
-/* KARTICE */
 
 
 .admin-card{
@@ -362,6 +479,8 @@ label{
 
 
 
+
+
 .admin-input{
 
     width:100%;
@@ -384,8 +503,6 @@ label{
 
 
 
-
-
 .admin-input:focus{
 
     border-color:#facc15;
@@ -393,6 +510,7 @@ label{
     box-shadow:0 0 15px rgba(212,175,55,.2);
 
 }
+
 
 
 
@@ -430,6 +548,7 @@ label{
 
 
 
+
 .save-btn,
 .clear-btn{
 
@@ -446,7 +565,6 @@ label{
 }
 
 
-
 .save-btn{
 
     background:#d4af37;
@@ -454,7 +572,6 @@ label{
     color:#050505;
 
 }
-
 
 
 .save-btn:hover{
@@ -477,6 +594,8 @@ label{
 
 
 
+
+
 #message{
 
     text-align:center;
@@ -492,7 +611,6 @@ label{
 
 
 
-/* FILTERI */
 
 
 .filters{
@@ -517,9 +635,6 @@ label{
 
 
 
-
-
-/* PJESME */
 
 
 #adminSongs{
@@ -580,6 +695,7 @@ label{
 
 
 
+
 .admin-song button{
 
     border:0;
@@ -595,6 +711,8 @@ label{
     margin-left:5px;
 
 }
+
+
 
 
 
@@ -631,10 +749,14 @@ label{
 
 
 
-/* MODAL */
 
 
-#editModal{
+
+/* EDIT MODAL */
+
+
+#editModal,
+.backup-modal{
 
     display:none;
 
@@ -652,7 +774,10 @@ label{
 
 
 
-.modal-box{
+
+
+.modal-box,
+.backup-box{
 
     max-width:700px;
 
@@ -672,12 +797,55 @@ label{
 
 
 
-@media(max-width:800px){
+
+.backup-box h2{
+
+    text-align:center;
+
+    color:#d4af37;
+
+    font-family:Georgia,serif;
+
+}
+
+
+
+
+
+.backup-box p{
+
+    text-align:center;
+
+    color:#cbd5e1;
+
+    line-height:1.6;
+
+}
+
+
+
+
+
+
+
+@media(max-width:900px){
 
 
 .top-bar{
 
     padding:20px;
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+
+
+.top-actions{
+
+    justify-content:center;
 
 }
 

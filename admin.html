@@ -16,6 +16,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/pdfmake.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/vfs_fonts.js"></script>
+
 </head>
 
 
@@ -67,6 +71,38 @@ Administracija pjesama
 
 
 
+<div class="top-actions">
+
+
+<button
+class="pdf-btn"
+onclick="openPdfBackup()">
+
+📄 PDF Backup
+
+</button>
+
+
+
+<button
+class="json-btn"
+onclick="downloadJsonBackup()">
+
+💾 JSON Backup
+
+</button>
+
+
+
+<button
+class="import-btn"
+onclick="importBackupSoon()">
+
+📥 Uvezi Backup
+
+</button>
+
+
 
 <button
 class="admin-btn"
@@ -77,8 +113,12 @@ onclick="logout()">
 </button>
 
 
+</div>
+
+
 
 </header>
+
 
 
 
@@ -108,6 +148,7 @@ Dodavanje, uređivanje i upravljanje pjesmama
 
 
 </section>
+
 
 
 
@@ -175,6 +216,8 @@ autocomplete="off"
 <datalist id="artistList">
 
 </datalist>
+
+
 
 
 
@@ -381,6 +424,10 @@ class="counter">
 
 
 
+<!-- EDIT MODAL -->
+
+
+
 <div id="editModal">
 
 
@@ -440,6 +487,7 @@ class="admin-input"
 
 
 
+
 <label>
 Tekst
 </label>
@@ -481,6 +529,7 @@ onclick="updateSong()">
 
 
 
+
 <button
 
 class="clear-btn"
@@ -491,6 +540,194 @@ onclick="closeModal()">
 
 </button>
 
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- PDF BACKUP MODAL -->
+
+
+
+<div id="pdfModal" class="backup-modal">
+
+
+
+<div class="backup-box">
+
+
+
+<h2>
+📄 PDF Backup
+</h2>
+
+
+
+
+
+<label>
+Odaberi izvođača
+</label>
+
+
+
+
+<select
+
+id="pdfArtist"
+
+class="admin-input">
+
+
+
+<option value="">
+
+🎤 Sve pjesme
+
+</option>
+
+
+
+</select>
+
+
+
+
+
+
+<p id="pdfSongCount">
+
+Broj pjesama: 0
+
+</p>
+
+
+
+
+
+
+
+<div class="buttons">
+
+
+
+<button
+
+class="clear-btn"
+
+onclick="closePdfModal()">
+
+❌ Odustani
+
+</button>
+
+
+
+
+<button
+
+class="pdf-btn"
+
+onclick="createPdf()">
+
+📄 Stvori PDF
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- IMPORT BACKUP MODAL -->
+
+
+
+<div id="importModal" class="backup-modal">
+
+
+
+<div class="backup-box">
+
+
+
+<h2>
+📥 Uvezi Backup
+</h2>
+
+
+
+
+
+<p>
+
+Funkcija uvoza sigurnosne kopije trenutno nije dostupna.
+
+</p>
+
+
+
+<p>
+
+Bit će dodana u jednom od sljedećih ažuriranja.
+
+</p>
+
+
+
+
+
+
+
+<div class="buttons">
+
+
+
+<button
+
+class="save-btn"
+
+onclick="closeImportModal()">
+
+U redu
+
+</button>
 
 
 

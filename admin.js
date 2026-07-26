@@ -24,29 +24,24 @@ let editId = null;
 
 async function checkLogin(){
 
-
     const { data } =
     await supabase.auth.getSession();
 
 
-
     if(!data.session){
-
 
         window.location.href =
         "login.html";
 
-
         return false;
-
 
     }
 
 
     return true;
 
-
 }
+
 
 
 
@@ -62,7 +57,6 @@ async function checkLogin(){
 async function loadSongs(){
 
 
-
     const {data,error}=
 
     await supabase
@@ -76,26 +70,17 @@ async function loadSongs(){
 
 
 
-
-
     if(error){
 
-
         console.error(error);
-
 
         showMessage(
             "Greška kod učitavanja."
         );
 
-
         return;
 
-
     }
-
-
-
 
 
 
@@ -106,15 +91,11 @@ async function loadSongs(){
 
 
 
-
-
     fillArtistFilter();
 
     fillArtistSuggestions();
 
     renderSongs();
-
-
 
 }
 
@@ -134,14 +115,11 @@ async function loadSongs(){
 function fillArtistSuggestions(){
 
 
-
     const list =
     document.getElementById("artistList");
 
 
-
     if(!list) return;
-
 
 
 
@@ -149,9 +127,7 @@ function fillArtistSuggestions(){
 
 
 
-
-
-    const artists = [
+    const artists=[
 
         ...new Set(
 
@@ -166,20 +142,15 @@ function fillArtistSuggestions(){
 
 
 
-
-
     artists.forEach(artist=>{
 
-
-        list.innerHTML += `
+        list.innerHTML +=`
 
         <option value="${artist}"></option>
 
         `;
 
-
     });
-
 
 
 }
@@ -201,27 +172,21 @@ function fillArtistSuggestions(){
 function fillArtistFilter(){
 
 
-
     const select =
     document.getElementById("artistFilter");
-
 
 
     if(!select) return;
 
 
 
-
-
-    select.innerHTML = `
+    select.innerHTML=`
 
     <option value="">
     🎤 Svi izvođači
     </option>
 
     `;
-
-
 
 
 
@@ -242,11 +207,10 @@ function fillArtistFilter(){
 
 
 
-
     artists.forEach(artist=>{
 
 
-        select.innerHTML += `
+        select.innerHTML +=`
 
         <option value="${artist}">
         ${artist}
@@ -277,15 +241,11 @@ function fillArtistFilter(){
 function renderSongs(){
 
 
-
     const box =
     document.getElementById("adminSongs");
 
 
-
     if(!box) return;
-
-
 
 
 
@@ -293,51 +253,32 @@ function renderSongs(){
 
 
 
-
-
-
     const counter =
     document.getElementById("songCounter");
 
 
-
     if(counter){
 
-
         counter.textContent =
-
         `${filteredSongs.length} pjesama`;
-
 
     }
 
 
 
 
-
-
-
     const start =
-
     (currentPage-1)
     *
     songsPerPage;
 
 
 
-
-
     const pageSongs =
-
     filteredSongs.slice(
-
         start,
-
         start + songsPerPage
-
     );
-
-
 
 
 
@@ -346,52 +287,39 @@ function renderSongs(){
     pageSongs.forEach(song=>{
 
 
-        box.innerHTML += `
-
+        box.innerHTML +=`
 
         <div class="admin-song">
 
+            <div>
 
-        <div>
+                <h3>
+                🎵 ${song.title}
+                </h3>
 
+                <p>
+                ${song.artist}
+                </p>
 
-        <h3>
-        🎵 ${song.title}
-        </h3>
-
-
-        <p>
-        ${song.artist}
-        </p>
-
-
-        </div>
+            </div>
 
 
+            <div>
+
+                <button onclick="openEdit(${song.id})">
+                ✏️
+                </button>
 
 
-
-        <div>
-
-
-        <button onclick="openEdit(${song.id})">
-        ✏️
-        </button>
+                <button onclick="deleteSong(${song.id})">
+                🗑️
+                </button>
 
 
-
-        <button onclick="deleteSong(${song.id})">
-        🗑️
-        </button>
-
+            </div>
 
 
         </div>
-
-
-
-        </div>
-
 
         `;
 
@@ -400,10 +328,7 @@ function renderSongs(){
 
 
 
-
-
     renderPagination();
-
 
 
 }
@@ -424,51 +349,35 @@ function renderSongs(){
 function renderPagination(){
 
 
-
     const box =
     document.getElementById("pagination");
 
 
-
     if(!box) return;
-
-
 
 
     box.innerHTML="";
 
 
 
-
-
-
     const pages =
-
     Math.ceil(
-
         filteredSongs.length /
         songsPerPage
-
     );
-
-
-
-
 
 
 
     for(let i=1;i<=pages;i++){
 
 
-        box.innerHTML += `
-
+        box.innerHTML +=`
 
         <button onclick="changePage(${i})">
 
         ${i}
 
         </button>
-
 
         `;
 
@@ -481,20 +390,14 @@ function renderPagination(){
 
 
 
-
-
-
-
 function changePage(page){
 
-
-    currentPage = page;
-
+    currentPage=page;
 
     renderSongs();
 
-
 }
+
 
 
 
@@ -512,7 +415,6 @@ function changePage(page){
 function applyFilters(){
 
 
-
     const text =
 
     document
@@ -522,8 +424,6 @@ function applyFilters(){
     .value
 
     .toLowerCase();
-
-
 
 
 
@@ -540,21 +440,16 @@ function applyFilters(){
 
 
 
-
     filteredSongs =
 
     allSongs.filter(song=>{
 
 
-
         const textMatch =
-
 
         song.title
         .toLowerCase()
         .includes(text)
-
-
 
         ||
 
@@ -564,12 +459,7 @@ function applyFilters(){
 
 
 
-
-
-
-
         const artistMatch =
-
 
         artist === ""
 
@@ -579,25 +469,16 @@ function applyFilters(){
 
 
 
-
-
-
         return textMatch && artistMatch;
-
 
 
     });
 
 
 
-
-
-
     currentPage=1;
 
-
     renderSongs();
-
 
 
 }
@@ -617,20 +498,14 @@ function applyFilters(){
 
 async function saveSong(){
 
-
-
     const title =
     document.getElementById("title")
     .value.trim();
 
 
-
-
     const artist =
     document.getElementById("artist")
     .value.trim();
-
-
 
 
     const lyrics =
@@ -640,24 +515,15 @@ async function saveSong(){
 
 
 
-
-
-
     if(!title || !artist || !lyrics){
-
 
         showMessage(
             "Popuni sva polja."
         );
 
-
         return;
 
-
     }
-
-
-
 
 
 
@@ -683,34 +549,18 @@ async function saveSong(){
 
 
 
-
-
-
     if(error){
 
-
-        console.error(error);
-
-
-        showMessage(
-            error.message
-        );
-
+        showMessage(error.message);
 
         return;
-
 
     }
 
 
 
 
-
-
-
-
     clearForm();
-
 
     await loadSongs();
 
@@ -718,7 +568,6 @@ async function saveSong(){
     showMessage(
         "Pjesma dodana ✅"
     );
-
 
 
 }
@@ -739,69 +588,37 @@ async function saveSong(){
 function openEdit(id){
 
 
-
     const song =
-
     allSongs.find(
-
         s=>s.id===id
-
     );
-
-
-
 
 
     if(!song) return;
 
 
-
-
-
-
     editId=id;
 
 
+    editTitle.value=song.title;
+
+    editArtist.value=song.artist;
+
+    editLyrics.value=song.lyrics;
 
 
 
-    document.getElementById("editTitle").value =
-    song.title;
-
-
-
-    document.getElementById("editArtist").value =
-    song.artist;
-
-
-
-    document.getElementById("editLyrics").value =
-    song.lyrics;
-
-
-
-
-
-
-    document.getElementById("editModal")
-    .style.display="block";
-
+    editModal.style.display="block";
 
 
 }
 
 
 
-
-
-
-
 function closeModal(){
 
 
-    document.getElementById("editModal")
-    .style.display="none";
-
+    editModal.style.display="none";
 
     editId=null;
 
@@ -812,17 +629,10 @@ function closeModal(){
 
 
 
-
-
-
 async function updateSong(){
 
 
-
     if(!editId) return;
-
-
-
 
 
 
@@ -834,14 +644,11 @@ async function updateSong(){
 
     .update({
 
-        title:
-        document.getElementById("editTitle").value,
+        title:editTitle.value,
 
-        artist:
-        document.getElementById("editArtist").value,
+        artist:editArtist.value,
 
-        lyrics:
-        document.getElementById("editLyrics").value
+        lyrics:editLyrics.value
 
     })
 
@@ -852,31 +659,18 @@ async function updateSong(){
 
 
 
-
-
-
-
     if(error){
 
-
-        showMessage(
-            error.message
-        );
-
+        showMessage(error.message);
 
         return;
-
 
     }
 
 
 
 
-
-
-
     closeModal();
-
 
     await loadSongs();
 
@@ -884,7 +678,6 @@ async function updateSong(){
     showMessage(
         "Izmjene spremljene ✅"
     );
-
 
 
 }
@@ -905,15 +698,9 @@ async function updateSong(){
 async function deleteSong(id){
 
 
-
     if(!confirm(
         "Obrisati pjesmu?"
     )) return;
-
-
-
-
-
 
 
 
@@ -933,24 +720,13 @@ async function deleteSong(id){
 
 
 
-
-
-
     if(error){
 
-
-        showMessage(
-            error.message
-        );
-
+        showMessage(error.message);
 
         return;
 
-
     }
-
-
-
 
 
 
@@ -962,7 +738,6 @@ async function deleteSong(id){
     );
 
 
-
 }
 
 
@@ -971,22 +746,15 @@ async function deleteSong(id){
 
 
 
-
-
-// =========================
-// ČIŠĆENJE
-// =========================
 
 
 function clearForm(){
 
+    title.value="";
 
-    document.getElementById("title").value="";
+    artist.value="";
 
-    document.getElementById("artist").value="";
-
-    document.getElementById("lyrics").value="";
-
+    lyrics.value="";
 
 }
 
@@ -998,38 +766,652 @@ function clearForm(){
 
 
 
-// =========================
-// PORUKA
-// =========================
-
-
 function showMessage(text){
-
 
 
     const box =
     document.getElementById("message");
 
 
-
     if(box){
-
 
         box.textContent=text;
 
 
-
         setTimeout(()=>{
 
-
             box.textContent="";
-
 
         },3000);
 
 
     }
 
+
+}
+
+
+
+
+
+
+
+
+
+// =========================
+// BACKUP FUNKCIJE
+// =========================
+
+
+
+async function downloadJsonBackup(){
+
+
+    const {data,error}=
+
+    await supabase
+
+    .from("songs")
+
+    .select("*")
+
+    .order("artist");
+
+
+
+    if(error){
+
+        alert(
+            "Greška kod backupa."
+        );
+
+        return;
+
+    }
+
+
+
+    const backup={
+
+        app:"Pjesmarica",
+
+        createdAt:
+        new Date().toISOString(),
+
+        songs:data
+
+    };
+
+
+
+    const blob =
+
+    new Blob(
+
+        [
+            JSON.stringify(
+                backup,
+                null,
+                2
+            )
+        ],
+
+        {
+            type:"application/json"
+        }
+
+    );
+
+
+
+    const url =
+    URL.createObjectURL(blob);
+
+
+
+    const a =
+    document.createElement("a");
+
+
+
+    a.href=url;
+
+
+    a.download=
+
+    "pjesmarica-backup.json";
+
+
+
+    a.click();
+
+
+
+    URL.revokeObjectURL(url);
+
+
+
+}
+
+
+
+
+
+
+
+
+function openPdfBackup(){
+
+
+    const modal =
+    document.getElementById("pdfModal");
+
+
+    const select =
+    document.getElementById("pdfArtist");
+
+
+    select.innerHTML=`
+
+    <option value="">
+    🎤 Sve pjesme
+    </option>
+
+    `;
+
+
+
+    const artists=[
+
+        ...new Set(
+            allSongs.map(
+                song=>song.artist
+            )
+        )
+
+    ].sort();
+
+
+
+
+    artists.forEach(artist=>{
+
+
+        select.innerHTML +=`
+
+        <option value="${artist}">
+        ${artist}
+        </option>
+
+        `;
+
+
+    });
+
+
+
+    updatePdfCount();
+
+
+    select.onchange =
+    updatePdfCount;
+
+
+
+    modal.style.display="block";
+
+
+}
+
+
+
+
+
+function updatePdfCount(){
+
+
+    const artist =
+    document.getElementById("pdfArtist")
+    .value;
+
+
+
+    let songs = allSongs;
+
+
+
+    if(artist){
+
+        songs =
+        allSongs.filter(
+            song=>song.artist===artist
+        );
+
+    }
+
+
+
+    document.getElementById("pdfSongCount")
+    .textContent=
+
+    `Broj pjesama: ${songs.length}`;
+
+
+}
+
+
+
+
+
+
+function closePdfModal(){
+
+
+    pdfModal.style.display="none";
+
+
+}
+
+
+
+
+
+
+
+function createPdf(){
+
+
+    const artist =
+    document
+    .getElementById("pdfArtist")
+    .value;
+
+
+
+    let songs=[...allSongs];
+
+
+
+    if(artist){
+
+        songs =
+        songs.filter(
+            song=>song.artist===artist
+        );
+
+    }
+
+
+
+    if(!songs.length){
+
+        alert(
+            "Nema pjesama za izvoz."
+        );
+
+        return;
+
+    }
+
+
+
+    const exportName =
+    artist || "Svi izvođači";
+
+
+
+
+    let content = [];
+
+
+
+    // NASLOVNICA
+
+    content.push({
+
+        text:"PJESMARICA",
+
+        style:"title",
+
+        alignment:"center",
+
+        margin:[0,40,0,10]
+
+    });
+
+
+
+    content.push({
+
+        text:"PDF Backup",
+
+        style:"subtitle",
+
+        alignment:"center"
+
+    });
+
+
+
+    content.push({
+
+        text:
+        `Izvođač: ${exportName}`,
+
+        alignment:"center",
+
+        margin:[0,20,0,0]
+
+    });
+
+
+
+    content.push({
+
+        text:
+        `Broj pjesama: ${songs.length}`,
+
+        alignment:"center"
+
+    });
+
+
+
+    content.push({
+
+        text:
+        `Datum: ${new Date().toLocaleDateString("hr-HR")}`,
+
+        alignment:"center"
+
+    });
+
+
+
+    content.push({
+
+        text:"",
+
+        pageBreak:"after"
+
+    });
+
+
+
+
+
+
+    // PJESME
+
+
+    songs.forEach((song,index)=>{
+
+
+        content.push({
+
+
+            text:
+            song.title,
+
+
+            style:"songTitle",
+
+            alignment:"center"
+
+
+
+        });
+
+
+
+        content.push({
+
+
+            text:
+            `Izvođač: ${song.artist}`,
+
+            style:"artist",
+
+            alignment:"center"
+
+
+        });
+
+
+
+
+        content.push({
+
+
+            canvas:[
+
+                {
+
+                    type:"line",
+
+                    x1:0,
+
+                    y1:0,
+
+                    x2:515,
+
+                    y2:0,
+
+                    lineWidth:1,
+
+                    lineColor:"#d4af37"
+
+                }
+
+            ],
+
+
+            margin:[0,5,0,10]
+
+
+        });
+
+
+
+
+
+
+
+        content.push({
+
+
+            text:
+            song.lyrics,
+
+
+            style:"lyrics",
+
+            alignment:"center"
+
+
+
+        });
+
+
+
+
+
+
+        if(index !== songs.length-1){
+
+
+            content.push({
+
+                text:"",
+
+                pageBreak:"after"
+
+
+            });
+
+
+        }
+
+
+
+    });
+
+
+
+
+
+
+
+    const docDefinition={
+
+
+
+        content:content,
+
+
+
+        styles:{
+
+
+
+            title:{
+
+
+                fontSize:28,
+
+                bold:true,
+
+                color:"#d4af37"
+
+
+            },
+
+
+
+            subtitle:{
+
+
+                fontSize:16
+
+
+            },
+
+
+
+            songTitle:{
+
+
+                fontSize:18,
+
+                bold:true,
+
+                color:"#d4af37",
+
+                margin:[0,0,0,5]
+
+
+            },
+
+
+
+            artist:{
+
+
+                fontSize:11,
+
+                color:"#555",
+
+                margin:[0,0,0,10]
+
+
+            },
+
+
+
+            lyrics:{
+
+
+                fontSize:12,
+
+                lineHeight:1.4
+
+
+            }
+
+
+
+        },
+
+
+
+
+        footer:function(currentPage,pageCount){
+
+
+            return {
+
+
+                text:
+                `Pjesmarica | ${currentPage} / ${pageCount}`,
+
+                alignment:"center",
+
+                fontSize:9,
+
+                color:"#777"
+
+
+            };
+
+
+        }
+
+
+
+
+    };
+
+
+
+
+
+
+    pdfMake
+    .createPdf(docDefinition)
+    .download(
+
+        `pjesmarica-${exportName}.pdf`
+
+    );
+
+
+
+    closePdfModal();
+
+
+
+}
+
+
+
+
+
+
+function importBackupSoon(){
+
+
+    importModal.style.display="block";
+
+
+}
+
+
+
+
+function closeImportModal(){
+
+
+    importModal.style.display="none";
 
 
 }
@@ -1050,14 +1432,11 @@ function showMessage(text){
 async function logout(){
 
 
-
     await supabase.auth.signOut();
-
 
 
     window.location.href =
     "login.html";
-
 
 
 }
@@ -1070,37 +1449,44 @@ async function logout(){
 
 
 
-// =========================
-// GLOBALNE FUNKCIJE ZA HTML
-// =========================
+// GLOBALNO
 
 
-window.saveSong = saveSong;
+window.saveSong=saveSong;
 
-window.clearForm = clearForm;
+window.clearForm=clearForm;
 
-window.openEdit = openEdit;
+window.openEdit=openEdit;
 
-window.closeModal = closeModal;
+window.closeModal=closeModal;
 
-window.updateSong = updateSong;
+window.updateSong=updateSong;
 
-window.deleteSong = deleteSong;
+window.deleteSong=deleteSong;
 
-window.logout = logout;
+window.logout=logout;
 
-window.changePage = changePage;
-
-
+window.changePage=changePage;
 
 
+window.openPdfBackup=openPdfBackup;
+
+window.closePdfModal=closePdfModal;
+
+window.createPdf=createPdf;
+
+window.downloadJsonBackup=downloadJsonBackup;
+
+window.importBackupSoon=importBackupSoon;
+
+window.closeImportModal=closeImportModal;
 
 
 
 
-// =========================
-// START
-// =========================
+
+
+
 
 
 document.addEventListener(
@@ -1110,10 +1496,8 @@ document.addEventListener(
 async()=>{
 
 
-
     const ok =
     await checkLogin();
-
 
 
     if(!ok) return;
@@ -1121,35 +1505,21 @@ async()=>{
 
 
 
-
-    document
-
-    .getElementById("adminSearch")
-
-    .addEventListener(
+    adminSearch.addEventListener(
         "input",
         applyFilters
     );
 
 
 
-
-
-    document
-
-    .getElementById("artistFilter")
-
-    .addEventListener(
+    artistFilter.addEventListener(
         "change",
         applyFilters
     );
 
 
 
-
-
     loadSongs();
-
 
 
 });
