@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Prijatelj zajednice | Pjesmarica</title>
+
+
+<link rel="stylesheet" href="dodaj-pjesmu.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="music-decoration note-one">
+♪
+</div>
+
+
+<div class="music-decoration note-two">
+𝄞
+</div>
+
+
+<div class="music-decoration note-three">
+♬
+</div>
+
+
+
+
+
+<div class="app">
+
+
+
+
+
+<header class="top-bar">
+
+
+
+<a href="index.html" class="logo">
+
+
+<h1>
+𝄞 Pjesmarica
+</h1>
+
+
+<p>
+Prijatelj zajednice
+</p>
+
+
+</a>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+<main>
+
+
+
+
+
+<section class="hero">
+
+
+<h1>
+🎵 Dodaj pjesmu
+</h1>
+
+
+<p>
+Podijeli pjesmu sa zajednicom.
+Nakon slanja pjesma ide na pregled administratoru.
+</p>
+
+
+</section>
+
+
+
+<div class="info-box">
+
+<h3>
+ℹ️ Važne napomene prije slanja
+</h3>
+
+
+<ul>
+
+<li>
+Popunite sva polja prije slanja pjesme.
+</li>
+
+<li>
+Provjerite naziv pjesme i izvođača zbog velikih i malih slova.
+</li>
+
+<li>
+Tekst pjesme unesite uredno — svaka strofa neka bude odvojena praznim redom.
+</li>
+
+<li>
+Pazite na raspored stihova kako bi pjesma izgledala lijepo u prikazu.
+</li>
+
+<li>
+Nemojte dodavati dodatne oznake poput "Refren", "Strofa 1" i slično osim ako su dio originalnog teksta.
+</li>
+
+<li>
+Prije slanja provjerite još jednom cijeli tekst pjesme.
+</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<section class="song-card">
+
+
+
+<h2>
+🎤 Nova pjesma
+</h2>
+
+
+
+
+
+<label>
+Naslov pjesme
+</label>
+
+
+<input
+
+id="title"
+
+class="song-input"
+
+placeholder="Unesi naziv pjesme"
+
+>
+
+
+
+
+
+
+
+
+<label>
+Izvođač
+</label>
+
+
+<input
+
+id="artist"
+
+class="song-input"
+
+placeholder="Unesi izvođača"
+
+>
+
+
+
+
+
+
+
+
+
+<label>
+Tekst pjesme
+</label>
+
+
+<textarea
+
+id="lyrics"
+
+class="song-input lyrics-input"
+
+placeholder="Unesi tekst pjesme">
+
+</textarea>
+
+
+
+
+
+
+
+
+<div class="buttons">
+
+
+<button type="button" class="send-btn">
+
+📨 Pošalji pjesmu
+
+</button>
+
+
+<button type="button" class="clear-btn">
+
+🧹 Očisti
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+<p id="message"></p>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+</div>
+
+
+<script type="module" src="dodaj-pjesmu.js"></script>
+
+
+</body>
+
+</html>
+

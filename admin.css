@@ -256,7 +256,22 @@ body::after{
 
 
 
+.community-btn{
 
+    background:#769597;
+
+    color:white;
+
+}
+
+
+.community-btn:hover{
+
+    background:#32393a;
+
+    transform:translateY(-3px);
+
+}
 
 
 .pdf-btn{

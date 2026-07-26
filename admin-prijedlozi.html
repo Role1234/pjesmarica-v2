@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Prijedlozi zajednice | Pjesmarica</title>
+
+
+<link rel="stylesheet" href="admin-prijedlozi.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="app">
+
+
+
+
+
+<header class="top-bar">
+
+
+<a href="admin.html" class="logo">
+
+
+<h1>
+𝄞 Pjesmarica
+</h1>
+
+
+<p>
+Prijedlozi zajednice
+</p>
+
+
+</a>
+
+
+
+
+
+<div class="top-actions">
+
+
+<button
+class="back-btn"
+onclick="goBack()">
+
+⬅️ Nazad
+
+</button>
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<main>
+
+
+
+
+<section class="hero">
+
+
+<h1>
+🤝 Pjesme zajednice
+</h1>
+
+
+<p>
+Pregled, uređivanje i odobravanje pjesama koje su poslali korisnici.
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="admin-card">
+
+
+
+<div class="card-header">
+
+
+<h2>
+🎵 Čekaju odobrenje
+</h2>
+
+
+<p>
+Provjeri sadržaj prije dodavanja u glavnu pjesmaricu.
+</p>
+
+
+</div>
+
+
+
+
+
+<div id="pendingSongs">
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- EDIT MODAL -->
+
+
+<div id="editModal">
+
+
+
+<div class="modal-box">
+
+
+
+<h2>
+✏️ Uredi prijedlog pjesme
+</h2>
+
+
+
+
+
+<label>
+Naslov pjesme
+</label>
+
+
+<input
+
+id="editTitle"
+
+class="song-input"
+
+placeholder="Unesi naslov pjesme"
+
+>
+
+
+
+
+
+
+
+<label>
+Izvođač
+</label>
+
+
+<input
+
+id="editArtist"
+
+class="song-input"
+
+placeholder="Unesi izvođača"
+
+>
+
+
+
+
+
+
+
+
+<label>
+Tekst pjesme
+</label>
+
+
+<textarea
+
+id="editLyrics"
+
+class="song-input lyrics-input"
+
+placeholder="Unesi tekst pjesme">
+
+</textarea>
+
+
+
+
+
+
+
+
+<div class="buttons">
+
+
+
+<button
+
+class="save-btn"
+
+onclick="updatePendingSong()">
+
+💾 Spremi izmjene
+
+</button>
+
+
+
+
+
+
+
+<button
+
+class="clear-btn"
+
+onclick="closeEditModal()">
+
+❌ Zatvori
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script type="module" src="admin-prijedlozi.js"></script>
+
+
+</body>
+
+
+</html>

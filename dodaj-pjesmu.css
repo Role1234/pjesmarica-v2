@@ -1,0 +1,709 @@
+*{
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    background:#050505;
+
+    color:white;
+
+    overflow-x:hidden;
+
+}
+
+
+
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    top:0;
+
+    right:0;
+
+    width:38%;
+
+    height:55%;
+
+
+    background-image:
+
+
+    linear-gradient(
+        90deg,
+        #050505,
+        rgba(5,5,5,.65),
+        transparent
+    ),
+
+
+    linear-gradient(
+        180deg,
+        transparent,
+        #050505
+    ),
+
+
+    url("images/violina-pozadina.jpg");
+
+
+
+    background-size:cover;
+
+    background-position:center;
+
+
+    opacity:.30;
+
+    z-index:0;
+
+}
+
+
+
+
+
+body::after{
+
+    content:"";
+
+
+    position:fixed;
+
+
+    width:450px;
+
+
+    height:450px;
+
+
+    right:-150px;
+
+
+    top:-150px;
+
+
+
+    background:#d4af37;
+
+
+    opacity:.08;
+
+
+    filter:blur(130px);
+
+
+    z-index:0;
+
+}
+
+
+
+
+
+
+
+.music-decoration{
+
+
+    position:fixed;
+
+
+    color:#d4af37;
+
+
+    opacity:.06;
+
+
+    font-size:170px;
+
+
+    z-index:1;
+
+
+    pointer-events:none;
+
+}
+
+
+
+.note-one{
+
+    top:40px;
+
+    right:100px;
+
+}
+
+
+
+.note-two{
+
+    bottom:30px;
+
+    left:40px;
+
+    font-size:210px;
+
+}
+
+
+
+.note-three{
+
+    top:45%;
+
+    right:40px;
+
+}
+
+
+
+
+
+
+
+
+.app{
+
+
+    position:relative;
+
+
+    z-index:2;
+
+
+    min-height:100vh;
+
+}
+
+
+
+
+
+
+
+/* HEADER */
+
+
+.top-bar{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    padding:25px 60px;
+
+
+}
+
+
+
+
+
+.logo{
+
+
+    text-decoration:none;
+
+}
+
+
+
+
+.logo h1{
+
+
+    margin:0;
+
+
+    color:#d4af37;
+
+
+    font-family:Georgia,serif;
+
+
+    font-size:30px;
+
+}
+
+
+
+
+.logo p{
+
+
+    margin:5px 0 0;
+
+
+    color:#cbd5e1;
+
+
+    font-size:13px;
+
+}
+
+
+
+
+
+
+
+
+main{
+
+
+    max-width:800px;
+
+
+    margin:auto;
+
+
+    padding:20px;
+
+}
+
+
+
+
+
+
+
+.hero{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+    padding-top:20px;
+
+}
+
+
+
+.hero h1{
+
+    font-family:Georgia,serif;
+
+    color:#d4af37;
+
+    font-size:43px;
+
+    margin:0 0 15px;
+
+}
+
+
+
+.hero p{
+
+    color:#cbd5e1;
+
+    line-height:1.7;
+
+    font-size:17px;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+
+
+
+
+
+
+.song-card{
+
+    width:100%;
+
+    background:rgba(0,0,0,.65);
+
+    border:1px solid #d4af37;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    backdrop-filter:blur(10px);
+
+}
+
+
+
+
+
+
+.song-card h2{
+
+
+    text-align:center;
+
+
+    color:#d4af37;
+
+
+    font-family:Georgia,serif;
+
+
+    margin-top:0;
+
+}
+
+
+
+
+
+
+
+label{
+
+
+    display:block;
+
+
+    margin:15px 0 7px;
+
+
+    color:#e5e7eb;
+
+}
+
+
+
+
+
+
+
+
+.song-input{
+
+
+    width:100%;
+
+
+    padding:13px 15px;
+
+
+    background:#090909;
+
+
+    color:white;
+
+
+    border:1px solid rgba(212,175,55,.5);
+
+
+    border-radius:12px;
+
+
+    outline:none;
+
+
+    font-size:15px;
+
+}
+
+
+
+
+.song-input:focus{
+
+
+    border-color:#facc15;
+
+
+    box-shadow:0 0 15px rgba(212,175,55,.2);
+
+}
+
+
+
+
+
+
+
+.lyrics-input{
+
+
+    min-height:250px;
+
+
+    resize:vertical;
+
+
+    line-height:1.6;
+
+}
+
+
+
+
+
+
+
+
+.buttons{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    gap:15px;
+
+
+    margin-top:25px;
+
+}
+
+
+
+
+
+
+
+
+.send-btn,
+.clear-btn{
+
+
+    border:0;
+
+
+    padding:12px 25px;
+
+
+    border-radius:14px;
+
+
+    cursor:pointer;
+
+
+    font-weight:700;
+
+}
+
+
+
+
+
+
+
+.send-btn{
+
+
+    background:#d4af37;
+
+
+    color:#050505;
+
+}
+
+
+
+.send-btn:hover{
+
+
+    background:#facc15;
+
+}
+
+
+
+
+
+
+
+.clear-btn{
+
+
+    background:#1f2937;
+
+
+    color:white;
+
+}
+
+
+
+
+
+
+
+
+#message{
+
+
+    text-align:center;
+
+
+    color:#d4af37;
+
+
+    margin-top:20px;
+
+}
+
+
+<!-- dekoracija glazbenih znakova -- >
+
+.info-box{
+
+    background:rgba(0,0,0,.55);
+
+    border:1px solid rgba(212,175,55,.6);
+
+    border-left:4px solid #d4af37;
+
+    border-radius:14px;
+
+    padding:15px 20px;
+
+    margin-bottom:20px;
+
+    backdrop-filter:blur(10px);
+
+}
+
+
+
+.info-box h3{
+
+    margin:0 0 10px;
+
+    text-align:center;
+
+    color:#d4af37;
+
+    font-family:Georgia,serif;
+
+    font-size:18px;
+
+}
+
+
+
+.info-box ul{
+
+    margin:5px 0 0;
+
+    padding-left:20px;
+
+}
+
+
+
+.info-box li{
+
+    color:#cbd5e1;
+
+    line-height:1.45;
+
+    margin-bottom:4px;
+
+    font-size:14px;
+
+}
+
+
+
+.info-box li::marker{
+
+    color:#d4af37;
+
+}
+
+
+
+
+@media(max-width:900px){
+
+
+
+.top-bar{
+
+
+    padding:20px;
+
+
+}
+
+
+
+main{
+
+
+    padding:15px;
+
+}
+
+
+
+.buttons{
+
+
+    flex-direction:column;
+
+}
+
+
+
+.hero h1{
+
+
+    font-size:32px;
+
+}
+
+
+
+}
+
+@media(max-width:600px){
+
+    .song-card{
+
+        padding:20px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:34px;
+
+    }
+
+
+    .hero p{
+
+        font-size:15px;
+
+    }
+
+}
