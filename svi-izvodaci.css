@@ -429,16 +429,39 @@ main{
 @media(max-width:800px){
 
 
-
 .top-bar{
 
+    justify-content:center;
 
-   padding-top:75px;
+    text-align:center;
 
-    padding-right:20px;
+    padding:75px 20px 30px;
 
-    padding-bottom:30px;
+}
 
+
+
+.logo{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+
+
+.logo h1{
+
+    text-align:center;
+
+}
+
+
+
+.logo p{
+
+    text-align:center;
 
 }
 
@@ -446,12 +469,9 @@ main{
 
 main{
 
-
     padding:0 20px 30px;
 
-
 }
-
 
 
 }
