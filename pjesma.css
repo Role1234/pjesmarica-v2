@@ -430,6 +430,17 @@ text-align:center;
 
     justify-content:center;
 
+    text-align:center;
+
+}
+
+
+.logo{
+
+    width:100%;
+
+    text-align:center;
+
 }
 
 
@@ -437,7 +448,12 @@ text-align:center;
 
     text-align:center;
 
-    width:100%;
+}
+
+
+.logo p{
+
+    text-align:center;
 
 }
 
